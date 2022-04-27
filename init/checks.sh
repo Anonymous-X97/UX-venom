@@ -10,22 +10,21 @@
 
 
 _changePythonVer() {
-    apt autoremove python3.9 -y
-    apt update -y && apt upgrade -y
+    pip install -U pyrogram
 }
 
-_checkBashReq() {
-    log "Checking Bash Commands ..."
-    command -v jq &> /dev/null || quit "Required command : jq : could not be found !"
-}
+#_checkBashReq() {
+#    log "Checking Bash Commands ..."
+#    command -v jq &> /dev/null || quit "Required command : jq : could not be found !"
+#}
 
-_checkPythonVersion() {
-    log "Checking Python Version ..."
-    getPythonVersion
-    ( test -z $pVer || test $(sed 's/\.//g' <<< $pVer) -lt 3${minPVer}0 ) \
-        && quit "You MUST have a python version of at least 3.$minPVer.0 !"
-    log "\tFound PYTHON - v$pVer ..."
-}
+#_checkPythonVersion() {
+#    log "Checking Python Version ..."
+#    getPythonVersion
+#    ( test -z $pVer || test $(sed 's/\.//g' <<< $pVer) -lt 3${minPVer}0 ) \
+#        && quit "You MUST have a python version of at least 3.$minPVer.0 !"
+#    log "\tFound PYTHON - v$pVer ..."
+#}
 
 _checkConfigFile() {
     log "Checking Config File ..."
@@ -169,8 +168,8 @@ _flushMessages() {
 
 assertPrerequisites() {
     _changePythonVer
-    _checkBashReq
-    _checkPythonVersion
+#    _checkBashReq
+#    _checkPythonVersion
     _checkConfigFile
     _checkRequiredVars
 }
