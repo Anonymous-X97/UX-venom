@@ -13,7 +13,6 @@ __all__ = ['Message']
 import re
 import asyncio
 from typing import List, Dict, Tuple, Union, Optional, Sequence
-from cachetools import Cache
 
 from pyrogram.types import InlineKeyboardMarkup, Message as RawMessage
 from pyrogram.errors.exceptions import MessageAuthorRequired, MessageTooLong
@@ -266,7 +265,7 @@ class Message(RawMessage):
                     del_in: int = -1,
                     log: Union[bool, str] = False,
                     quote: Optional[bool] = None,
-                    parse_mode: Union[str, object] = ParseMode,
+                    parse_mode: Union[str, object] = ParseMode.DEFAULT,
                     disable_web_page_preview: Optional[bool] = None,
                     disable_notification: Optional[bool] = None,
                     reply_to_message_id: Optional[int] = None,
@@ -426,7 +425,7 @@ class Message(RawMessage):
                          text: str,
                          del_in: int = -1,
                          log: Union[bool, str] = False,
-                         parse_mode: Union[str, object] = ParseMode,
+                         parse_mode: Union[str, object] = ParseMode.DEFAULT,
                          disable_web_page_preview: Optional[bool] = None,
                          reply_markup: InlineKeyboardMarkup = None,
                          **kwargs) -> Union['Message', bool]:
@@ -492,7 +491,7 @@ class Message(RawMessage):
                   del_in: int = -1,
                   log: Union[bool, str] = False,
                   sudo: bool = True,
-                  parse_mode: Union[str, object] = ParseMode,
+                  parse_mode: Union[str, object] = ParseMode.DEFAULT,
                   disable_web_page_preview: Optional[bool] = None,
                   reply_markup: InlineKeyboardMarkup = None) -> Union['Message', bool]:
         """\nYou can send error messages using this method
@@ -547,7 +546,7 @@ class Message(RawMessage):
                         text: str,
                         del_in: int = -1,
                         log: Union[bool, str] = False,
-                        parse_mode: Union[str, object] = ParseMode,
+                        parse_mode: Union[str, object] = ParseMode.DEFAULT,
                         disable_web_page_preview: Optional[bool] = None,
                         reply_markup: InlineKeyboardMarkup = None,
                         **kwargs) -> Union['Message', bool]:
@@ -606,7 +605,7 @@ class Message(RawMessage):
                                    del_in: int = -1,
                                    log: Union[bool, str] = False,
                                    sudo: bool = True,
-                                   parse_mode: Union[str, object] = ParseMode,
+                                   parse_mode: Union[str, object] = ParseMode.DEFAULT,
                                    disable_web_page_preview: Optional[bool] = None,
                                    reply_markup: InlineKeyboardMarkup = None,
                                    **kwargs) -> Union['Message', bool]:
@@ -672,7 +671,7 @@ class Message(RawMessage):
                                     del_in: int = -1,
                                     log: Union[bool, str] = False,
                                     quote: Optional[bool] = None,
-                                    parse_mode: Union[str, object] = ParseMode,
+                                    parse_mode: Union[str, object] = ParseMode.DEFAULT,
                                     disable_web_page_preview: Optional[bool] = None,
                                     disable_notification: Optional[bool] = None,
                                     reply_to_message_id: Optional[int] = None,
@@ -758,7 +757,7 @@ class Message(RawMessage):
                                          text: str,
                                          del_in: int = -1,
                                          log: Union[bool, str] = False,
-                                         parse_mode: Union[str, object] = ParseMode,
+                                         parse_mode: Union[str, object] = ParseMode.DEFAULT,
                                          disable_web_page_preview: Optional[bool] = None,
                                          reply_markup: InlineKeyboardMarkup = None,
                                          **kwargs) -> Union['Message', bool]:
