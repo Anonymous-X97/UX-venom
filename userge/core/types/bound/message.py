@@ -60,6 +60,8 @@ class Message(RawMessage):
     @property
     def client(self) -> Union['_client.Userge', '_client.UsergeBot']:
         """ returns client """
+        if self.replied:
+            self = self.replied
         return self._client
 
     @property
